@@ -1,4 +1,4 @@
-FROM perl:5.28-slim
+FROM perl:5.30-slim
 MAINTAINER Justin Zhang<schnell18@gmail.com>
 
 # change time zone to Asia/Shanghai
@@ -6,7 +6,7 @@ ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # change mirror
-RUN sed -i.orig 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+# RUN sed -i.orig 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 # install 7zip utility
 RUN apt-get update \
